@@ -1,10 +1,19 @@
-import { Children, cloneElement, isValidElement } from 'react'
+// https://ui.shadcn.com/docs/components/button
+
+import {
+  type ComponentProps,
+  type ReactElement,
+  type ReactNode,
+  Children,
+  cloneElement,
+  isValidElement,
+} from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { Loader2 } from 'lucide-react'
 
-import styles from './Button.module.css'
-import type { ReactElement, ReactNode } from 'react'
 import { cn } from '@/utils'
+
+import styles from './Button.module.css'
 
 type ButtonVariant =
   | 'default'
@@ -13,7 +22,7 @@ type ButtonVariant =
   | 'secondary'
   | 'ghost'
   | 'link'
-type ButtonSize = 'default' | 'sm' | 'lg' | 'icon'
+type ButtonSize = 'md' | 'sm' | 'lg' | 'icon'
 
 type ChildWithClassName = {
   className?: string
@@ -23,12 +32,12 @@ type ChildWithClassName = {
 function Button({
   className,
   variant = 'default',
-  size = 'default',
+  size = 'md',
   children,
   loading = false,
   asChild = false,
   ...props
-}: React.ComponentProps<'button'> & {
+}: ComponentProps<'button'> & {
   variant?: ButtonVariant
   size?: ButtonSize
   loading?: boolean
@@ -39,17 +48,11 @@ function Button({
   const sharedProps = {
     ...props,
     'data-slot': 'button',
-    className: cn(
-      styles.root,
-      styles[`variant-${variant}` as const],
-      styles[`size-${size}` as const],
-      className,
-    ),
+    className: cn(styles.root, styles[variant], styles[size], className),
     disabled: loading || props.disabled,
   }
 
-  // Custom logic for loading state & working with asChild
-  const isDefault = variant === 'default' || variant === undefined
+  const isDefault = variant === 'default'
   const isDefaultLoading = isDefault && loading
   if (asChild) {
     const onlyChild = Children.only(children)
