@@ -1,14 +1,8 @@
 :root {
-  --radius: 0.5rem;
-
   --background: oklch(0.945 0.014 94.71);
   --foreground: oklch(0.285 0.05 76.8);
 
-  --card: oklch(0.965 0.028 93.2);
-  --card-foreground: oklch(0.31 0.06 76.8);
-
-  --popover: oklch(0.96 0.028 93.2);
-  --popover-foreground: oklch(0.31 0.06 76.8);
+  --ring: oklch(0.6 0.08 80);
 
   --primary: oklch(0.58 0.1 79.6);
   --primary-foreground: oklch(0.96 0.035 94);
@@ -27,13 +21,6 @@
 
   --border: oklch(0.82 0.03 80);
   --input: oklch(0.82 0.03 80);
-  --ring: oklch(0.6 0.08 80);
-
-  --chart-1: oklch(0.61 0.12 75);
-  --chart-2: oklch(0.55 0.07 120);
-  --chart-3: oklch(0.73 0.07 65);
-  --chart-4: oklch(0.82 0.08 85);
-  --chart-5: oklch(0.48 0.07 65);
 
   --sidebar: oklch(0.93 0.03 94);
   --sidebar-foreground: oklch(0.285 0.05 76.8);
@@ -46,25 +33,21 @@
 }
 
 .dark {
-  --background: hsl(90, 10%, 10%); /* deep green olive */
-  --foreground: hsl(45, 20%, 85%); /* soft light sand text */
+  --background: hsl(90, 10%, 10%);
+  --foreground: hsl(45, 20%, 85%);
 
-  --card: hsl(90, 10%, 12%);
-  --card-foreground: hsl(45, 20%, 85%);
+  --ring: hsl(95, 25%, 50%);
 
-  --popover: hsl(90, 10%, 12%);
-  --popover-foreground: hsl(45, 20%, 85%);
-
-  --primary: hsl(95, 25%, 50%); /* olive highlight */
+  --primary: hsl(95, 25%, 50%);
   --primary-foreground: hsl(90, 10%, 10%);
 
-  --secondary: hsl(90, 15%, 25%); /* deep olive shade */
+  --secondary: hsl(90, 15%, 25%);
   --secondary-foreground: hsl(45, 20%, 85%);
 
   --muted: hsl(90, 10%, 22%);
   --muted-foreground: hsl(48, 10%, 65%);
 
-  --accent: hsl(100, 20%, 30%); /* cooler olive tone */
+  --accent: hsl(100, 20%, 30%);
   --accent-foreground: hsl(45, 20%, 85%);
 
   --destructive: hsl(0, 65%, 45%);
@@ -72,13 +55,6 @@
 
   --border: hsl(90, 10%, 30%);
   --input: hsl(90, 10%, 30%);
-  --ring: hsl(95, 25%, 50%);
-
-  --chart-1: hsl(100, 25%, 40%);
-  --chart-2: hsl(80, 25%, 35%);
-  --chart-3: hsl(120, 20%, 45%);
-  --chart-4: hsl(105, 30%, 50%);
-  --chart-5: hsl(90, 20%, 35%);
 
   --sidebar: hsl(90, 10%, 12%);
   --sidebar-foreground: hsl(45, 20%, 85%);
