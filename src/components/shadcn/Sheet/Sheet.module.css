@@ -1,0 +1,120 @@
+ .overlay {
+   position: fixed;
+   inset: 0;
+   z-index: 50;
+   background: color-mix(in oklab, black 50%, transparent);
+   animation: _fadeIn 150ms ease-out;
+ }
+
+ @keyframes _fadeIn {
+   from { opacity: 0; }
+   to { opacity: 1; }
+ }
+
+ .content {
+   position: fixed;
+   z-index: 50;
+   display: flex;
+   flex-direction: column;
+   gap: 1rem;
+   background: var(--background);
+   box-shadow: var(--shadow-lg, 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1));
+   transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+ }
+
+ .contentRight {
+   inset: 0 0 0 auto;
+   height: 100%;
+   width: 75vw;
+   max-width: 24rem;
+   border-left: 1px solid var(--border);
+   transform: translateX(100%);
+   animation: _slideInRight 500ms ease forwards;
+ }
+
+ .contentLeft {
+   inset: 0 auto 0 0;
+   height: 100%;
+   width: 75vw;
+   max-width: 24rem;
+   border-right: 1px solid var(--border);
+   transform: translateX(-100%);
+   animation: _slideInLeft 500ms ease forwards;
+ }
+
+ .contentTop {
+   inset: 0 0 auto 0;
+   height: auto;
+   border-bottom: 1px solid var(--border);
+   transform: translateY(-100%);
+   animation: _slideInTop 500ms ease forwards;
+ }
+
+ .contentBottom {
+   inset: auto 0 0 0;
+   height: auto;
+   border-top: 1px solid var(--border);
+   transform: translateY(100%);
+   animation: _slideInBottom 500ms ease forwards;
+ }
+
+ @keyframes _slideInRight {
+   from { transform: translateX(100%); opacity: 0; }
+   to { transform: translateX(0); opacity: 1; }
+ }
+ @keyframes _slideInLeft {
+   from { transform: translateX(-100%); opacity: 0; }
+   to { transform: translateX(0); opacity: 1; }
+ }
+ @keyframes _slideInTop {
+   from { transform: translateY(-100%); opacity: 0; }
+   to { transform: translateY(0); opacity: 1; }
+ }
+ @keyframes _slideInBottom {
+   from { transform: translateY(100%); opacity: 0; }
+   to { transform: translateY(0); opacity: 1; }
+ }
+
+ .closeButton {
+   position: absolute;
+   top: 1rem;
+   right: 1rem;
+   border-radius: 0.25rem;
+   opacity: 0.7;
+   transition: opacity 150ms;
+ }
+ .closeButton:hover { opacity: 1; }
+ .closeButton:focus-visible {
+   outline: 2px solid var(--ring);
+   outline-offset: 2px;
+ }
+ .closeButton:disabled {
+   pointer-events: none;
+ }
+
+ .closeIcon { width: 1rem; height: 1rem; }
+
+ .header {
+   display: flex;
+   flex-direction: column;
+   gap: 0.375rem;
+   padding: 1rem;
+ }
+
+ .footer {
+   margin-top: auto;
+   display: flex;
+   flex-direction: column;
+   gap: 0.5rem;
+   padding: 1rem;
+ }
+
+ .title {
+   color: var(--foreground);
+   font-weight: 600;
+ }
+
+ .description {
+   color: var(--muted-foreground);
+   font-size: 0.875rem;
+ }
