@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
-import { PanelLeftIcon } from 'lucide-react'
 
+import { PanelLeftIcon } from '@/assets'
 import {
   Button,
   Input,
@@ -21,6 +21,7 @@ import {
 } from '..'
 import { useIsMobile } from '@/hooks'
 import { cn } from '@/utils'
+
 import styles from './Sidebar.module.css'
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
@@ -495,7 +496,11 @@ function SidebarMenuAction({
     <Comp
       data-slot="sidebar-menu-action"
       data-sidebar="menu-action"
-      className={cn(styles.menuAction, showOnHover && styles.menuActionShow, className)}
+      className={cn(
+        styles.menuAction,
+        showOnHover && styles.menuActionShow,
+        className,
+      )}
       {...props}
     />
   )
@@ -535,7 +540,10 @@ function SidebarMenuSkeleton({
       {...props}
     >
       {showIcon && (
-        <Skeleton className={styles.menuSkeletonIcon} data-sidebar="menu-skeleton-icon" />
+        <Skeleton
+          className={styles.menuSkeletonIcon}
+          data-sidebar="menu-skeleton-icon"
+        />
       )}
       <Skeleton
         className={styles.menuSkeletonText}

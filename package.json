@@ -25,7 +25,6 @@
     "@tanstack/react-start": "^1.132.0",
     "@tanstack/router-plugin": "^1.132.0",
     "lil-gui": "^0.19.2",
-    "lucide-react": "^0.552.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "three": "^0.171.0",
