@@ -9,8 +9,8 @@ import {
   isValidElement,
 } from 'react'
 import { Slot } from '@radix-ui/react-slot'
-import { Loader2 } from 'lucide-react'
 
+import { LoaderCircleIcon } from '@/assets'
 import { cn } from '@/utils'
 
 import styles from './Button.module.css'
@@ -67,7 +67,7 @@ function Button({
         ...props,
         children: (
           <>
-            {isDefaultLoading && <Loader2 className={styles.spin} />}
+            {isDefaultLoading && <LoaderCircleIcon className={styles.spin} />}
             {onlyChildElement.props.children}
           </>
         ),
@@ -93,7 +93,7 @@ function Button({
 
   return (
     <Comp {...sharedProps}>
-      {isDefaultLoading && <Loader2 className={styles.spin} />}
+      {isDefaultLoading && <LoaderCircleIcon className={styles.spin} />}
       {children}
     </Comp>
   )

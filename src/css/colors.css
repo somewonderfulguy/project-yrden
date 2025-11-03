@@ -32,7 +32,7 @@
   --sidebar-ring: oklch(0.7 0.05 80);
 }
 
-.dark {
+[data-theme='dark'] {
   --background: hsl(90, 10%, 10%);
   --foreground: hsl(45, 20%, 85%);
 

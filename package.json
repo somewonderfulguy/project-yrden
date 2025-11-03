@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit",
     "format": "prettier",
     "validate": "npm run lint && npm run typecheck",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6060 --no-open --quiet",
     "build-storybook": "storybook build"
   },
   "dependencies": {

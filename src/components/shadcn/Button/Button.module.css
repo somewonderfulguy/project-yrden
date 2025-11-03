@@ -15,6 +15,7 @@
     border-color 150ms,
     opacity 150ms;
   outline: none;
+  border: none;
   user-select: none;
 }
 
