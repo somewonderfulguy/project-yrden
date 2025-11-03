@@ -1,17 +1,24 @@
 import {
   Children,
+  
+  
   cloneElement,
-  isValidElement,
-  type ReactNode,
-  type ReactElement,
+  isValidElement
 } from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { Loader2 } from 'lucide-react'
 
-import { cn } from '@/utils'
 import styles from './Button.module.css'
+import type {ReactElement, ReactNode} from 'react';
+import { cn } from '@/utils'
 
-type ButtonVariant = 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
+type ButtonVariant =
+  | 'default'
+  | 'destructive'
+  | 'outline'
+  | 'secondary'
+  | 'ghost'
+  | 'link'
 type ButtonSize = 'default' | 'sm' | 'lg' | 'icon'
 
 type ChildWithClassName = {

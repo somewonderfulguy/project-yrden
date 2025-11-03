@@ -34,9 +34,17 @@ export const FlagsPage = () => {
 
     const gui = setupGUI(mesh)
 
-    const sizes = { width: canvas.clientWidth || 800, height: canvas.clientHeight || 600 }
+    const sizes = {
+      width: canvas.clientWidth || 800,
+      height: canvas.clientHeight || 600,
+    }
 
-    const camera = new PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100)
+    const camera = new PerspectiveCamera(
+      75,
+      sizes.width / sizes.height,
+      0.1,
+      100,
+    )
     camera.position.set(0, 0, 1)
     scene.add(camera)
 
@@ -78,7 +86,11 @@ export const FlagsPage = () => {
 
   return (
     <div>
-      <canvas ref={canvasRef} className="webgl" style={{ width: '100%', height: '100vh', display: 'block' }} />
+      <canvas
+        ref={canvasRef}
+        className="webgl"
+        style={{ width: '100%', height: '100vh', display: 'block' }}
+      />
     </div>
   )
 }

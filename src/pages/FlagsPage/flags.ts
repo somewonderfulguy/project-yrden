@@ -236,4 +236,4 @@ export const FLAGS = {
 } as const
 
 export type Flag = keyof typeof FLAGS
-export const flagOptions = Object.keys(FLAGS).sort() as Flag[]
+export const flagOptions = Object.keys(FLAGS).sort() as Array<Flag>

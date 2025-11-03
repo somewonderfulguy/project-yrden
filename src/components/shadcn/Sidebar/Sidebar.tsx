@@ -4,9 +4,6 @@ import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { PanelLeftIcon } from 'lucide-react'
 
-import { useIsMobile } from '@/hooks'
-import { cn } from '@/utils'
-
 import {
   Button,
   Input,
@@ -22,6 +19,9 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from '..'
+import { useIsMobile } from '@/hooks'
+import { cn } from '@/utils'
+
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state'
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7

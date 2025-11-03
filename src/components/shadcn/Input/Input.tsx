@@ -1,5 +1,5 @@
-import { cn } from '@/utils'
 import styles from './Input.module.css'
+import { cn } from '@/utils'
 
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   return (

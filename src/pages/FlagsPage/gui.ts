@@ -1,6 +1,7 @@
 import GUI from 'lil-gui'
 import * as THREE from 'three'
-import { FLAGS, type Flag, flagOptions } from './flags'
+import { FLAGS,  flagOptions } from './flags'
+import type {Flag} from './flags';
 
 export const setupGUI = (
   mesh: THREE.Mesh<THREE.PlaneGeometry, THREE.ShaderMaterial>,
