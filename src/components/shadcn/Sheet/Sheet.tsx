@@ -8,6 +8,7 @@ import { cn } from '@/utils'
 
 import styles from './Sheet.module.css'
 
+/** https://ui.shadcn.com/docs/components/sheet */
 const Sheet = (props: ComponentProps<typeof SheetPrimitive.Root>) => (
   <SheetPrimitive.Root data-slot="sheet" {...props} />
 )

@@ -1,59 +1,51 @@
 'use client'
 
-import * as React from 'react'
+import type { ComponentProps } from 'react'
 import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 
-import styles from './Tooltip.module.css'
 import { cn } from '@/utils'
 
-function TooltipProvider({
+import styles from './Tooltip.module.css'
+
+/** https://ui.shadcn.com/docs/components/tooltip */
+const TooltipProvider = ({
   delayDuration = 0,
   ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Provider>) {
-  return (
-    <TooltipPrimitive.Provider
-      data-slot="tooltip-provider"
-      delayDuration={delayDuration}
-      {...props}
-    />
-  )
-}
+}: ComponentProps<typeof TooltipPrimitive.Provider>) => (
+  <TooltipPrimitive.Provider
+    data-slot="tooltip-provider"
+    delayDuration={delayDuration}
+    {...props}
+  />
+)
 
-function Tooltip({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Root>) {
-  return (
-    <TooltipProvider>
-      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
-    </TooltipProvider>
-  )
-}
+const Tooltip = (props: ComponentProps<typeof TooltipPrimitive.Root>) => (
+  <TooltipProvider>
+    <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+  </TooltipProvider>
+)
 
-function TooltipTrigger({
-  ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Trigger>) {
-  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
-}
+const TooltipTrigger = (
+  props: ComponentProps<typeof TooltipPrimitive.Trigger>,
+) => <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />
 
-function TooltipContent({
+const TooltipContent = ({
   className,
   sideOffset = 0,
   children,
   ...props
-}: React.ComponentProps<typeof TooltipPrimitive.Content>) {
-  return (
-    <TooltipPrimitive.Portal>
-      <TooltipPrimitive.Content
-        data-slot="tooltip-content"
-        sideOffset={sideOffset}
-        className={cn(styles.content, className)}
-        {...props}
-      >
-        {children}
-        <TooltipPrimitive.Arrow className={styles.arrow} />
-      </TooltipPrimitive.Content>
-    </TooltipPrimitive.Portal>
-  )
-}
+}: ComponentProps<typeof TooltipPrimitive.Content>) => (
+  <TooltipPrimitive.Portal>
+    <TooltipPrimitive.Content
+      data-slot="tooltip-content"
+      sideOffset={sideOffset}
+      className={cn(styles.content, className)}
+      {...props}
+    >
+      {children}
+      <TooltipPrimitive.Arrow className={styles.arrow} />
+    </TooltipPrimitive.Content>
+  </TooltipPrimitive.Portal>
+)
 
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider }

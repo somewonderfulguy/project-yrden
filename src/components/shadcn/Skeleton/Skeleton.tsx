@@ -1,14 +1,10 @@
-import styles from './Skeleton.module.css'
+import type { ComponentProps } from 'react'
+
 import { cn } from '@/utils'
 
-function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="skeleton"
-      className={cn(styles.root, className)}
-      {...props}
-    />
-  )
-}
+import styles from './Skeleton.module.css'
 
-export { Skeleton }
+/** https://ui.shadcn.com/docs/components/skeleton */
+export const Skeleton = ({ className, ...props }: ComponentProps<'div'>) => (
+  <div data-slot="skeleton" className={cn(styles.root, className)} {...props} />
+)
