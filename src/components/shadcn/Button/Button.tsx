@@ -1,5 +1,3 @@
-// https://ui.shadcn.com/docs/components/button
-
 import {
   type ComponentProps,
   type ReactElement,
@@ -29,7 +27,8 @@ type ChildWithClassName = {
   children?: ReactNode
 }
 
-function Button({
+/** https://ui.shadcn.com/docs/components/button */
+export const Button = ({
   className,
   variant = 'default',
   size = 'md',
@@ -42,7 +41,7 @@ function Button({
   size?: ButtonSize
   loading?: boolean
   asChild?: boolean
-}) {
+}) => {
   const Comp = asChild ? Slot : 'button'
 
   const sharedProps = {
@@ -60,7 +59,7 @@ function Button({
       const onlyChildElement = onlyChild as ReactElement<ChildWithClassName>
 
       const newChildren = cloneElement(onlyChildElement, {
-        disabled: loading,
+        disabled: loading || props.disabled,
         className: [className, onlyChildElement.props.className]
           .filter(Boolean)
           .join(' '),
@@ -92,11 +91,12 @@ function Button({
   }
 
   return (
-    <Comp {...sharedProps}>
+    <Comp
+      {...sharedProps}
+      className={cn(sharedProps.className, sharedProps.disabled && styles.disabled)}
+    >
       {isDefaultLoading && <LoaderCircleIcon className={styles.spin} />}
       {children}
     </Comp>
   )
 }
-
-export { Button }

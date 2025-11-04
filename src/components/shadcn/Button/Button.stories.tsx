@@ -85,3 +85,28 @@ export const Link: Story = {
     children: 'Button',
   },
 }
+
+export const Loader: Story = {
+  args: {
+    children: 'Loading...',
+    loading: true,
+  },
+}
+
+export const Disabled: Story = {
+  args: {
+    children: 'Button',
+    disabled: true,
+  },
+}
+
+export const AsChild: Story = {
+  args: {
+    asChild: true,
+    children: (
+      <a href="#" onClick={(e) => e.preventDefault()}>
+        Tag &lt;a /&gt;
+      </a>
+    ),
+  },
+}
