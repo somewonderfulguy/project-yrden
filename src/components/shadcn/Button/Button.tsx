@@ -93,7 +93,10 @@ export const Button = ({
   return (
     <Comp
       {...sharedProps}
-      className={cn(sharedProps.className, sharedProps.disabled && styles.disabled)}
+      className={cn(
+        sharedProps.className,
+        sharedProps.disabled && styles.disabled,
+      )}
     >
       {isDefaultLoading && <LoaderCircleIcon className={styles.spin} />}
       {children}
