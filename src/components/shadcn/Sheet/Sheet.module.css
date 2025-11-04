@@ -3,7 +3,14 @@
   inset: 0;
   z-index: 50;
   background: color-mix(in oklab, black 50%, transparent);
-  animation: _fadeIn 150ms ease-out;
+
+  &[data-state='open'] {
+    animation: _fadeIn 150ms ease-out;
+  }
+
+  &[data-state='closed'] {
+    animation: _fadeOut 150ms ease-out;
+  }
 }
 
 @keyframes _fadeIn {
@@ -12,6 +19,15 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes _fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 
@@ -38,8 +54,14 @@
   width: 75vw;
   max-width: 24rem;
   border-left: 1px solid var(--border);
-  transform: translateX(100%);
-  animation: _slideInRight 500ms ease forwards;
+
+  &[data-state='open'] {
+    animation: _slideInRight 500ms ease forwards;
+  }
+
+  &[data-state='closed'] {
+    animation: _slideOutRight 300ms ease forwards;
+  }
 }
 
 .contentLeft {
@@ -48,24 +70,42 @@
   width: 75vw;
   max-width: 24rem;
   border-right: 1px solid var(--border);
-  transform: translateX(-100%);
-  animation: _slideInLeft 500ms ease forwards;
+
+  &[data-state='open'] {
+    animation: _slideInLeft 500ms ease forwards;
+  }
+
+  &[data-state='closed'] {
+    animation: _slideOutLeft 300ms ease forwards;
+  }
 }
 
 .contentTop {
   inset: 0 0 auto 0;
   height: auto;
   border-bottom: 1px solid var(--border);
-  transform: translateY(-100%);
-  animation: _slideInTop 500ms ease forwards;
+
+  &[data-state='open'] {
+    animation: _slideInTop 500ms ease forwards;
+  }
+
+  &[data-state='closed'] {
+    animation: _slideOutTop 300ms ease forwards;
+  }
 }
 
 .contentBottom {
   inset: auto 0 0 0;
   height: auto;
   border-top: 1px solid var(--border);
-  transform: translateY(100%);
-  animation: _slideInBottom 500ms ease forwards;
+
+  &[data-state='open'] {
+    animation: _slideInBottom 500ms ease forwards;
+  }
+
+  &[data-state='closed'] {
+    animation: _slideOutBottom 300ms ease forwards;
+  }
 }
 
 @keyframes _slideInRight {
@@ -109,6 +149,50 @@
   }
 }
 
+@keyframes _slideOutRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes _slideOutLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes _slideOutTop {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+@keyframes _slideOutBottom {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
 .closeButton {
   position: absolute;
   top: 1rem;
@@ -116,16 +200,23 @@
   border-radius: 0.25rem;
   opacity: 0.7;
   transition: opacity 150ms;
-}
-.closeButton:hover {
-  opacity: 1;
-}
-.closeButton:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-}
-.closeButton:disabled {
-  pointer-events: none;
+
+  background: transparent;
+  border: none;
+  color: var(--foreground);
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+
+    &:disabled {
+      pointer-events: none;
+    }
+  }
 }
 
 .closeIcon {
@@ -156,4 +247,16 @@
 .description {
   color: var(--muted-foreground);
   font-size: 0.875rem;
+}
+
+.srOnly {
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  position: absolute;
+  overflow: hidden;
 }
