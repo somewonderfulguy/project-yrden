@@ -1,5 +1,4 @@
-export * from './Button'
-export * from './Input'
+export * from './controls'
 export * from './Separator'
 export * from './Sheet'
 export * from './Skeleton'

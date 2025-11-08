@@ -1,6 +1,10 @@
+import type { ReactNode } from 'react'
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
 
+import { SideControls, SidebarProvider } from '@/components'
+
 import '../css'
+import styles from './__root.module.css'
 
 export const Route = createRootRoute({
   head: () => ({
@@ -13,15 +17,18 @@ export const Route = createRootRoute({
   shellComponent: RootDocument,
 })
 
-function RootDocument({ children }: { children: React.ReactNode }) {
+function RootDocument({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
       </head>
       <body>
-        {children}
-        <Scripts />
+        <SidebarProvider>
+          <SideControls />
+          <main className={styles.main}>{children}</main>
+          <Scripts />
+        </SidebarProvider>
       </body>
     </html>
   )

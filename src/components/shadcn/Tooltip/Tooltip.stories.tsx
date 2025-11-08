@@ -6,7 +6,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from './Tooltip'
-import { Button } from '../Button'
+import { Button } from '../controls/Button'
 
 const meta: Meta<typeof TooltipProvider> = {
   title: 'Components/Shadcn/Tooltip',

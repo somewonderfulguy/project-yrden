@@ -1,2 +1,1 @@
 export * from './SideControls'
-export * from './shadcn'

@@ -5,7 +5,7 @@ import { XIcon } from '@/assets'
 import { Button } from './Button'
 
 const meta: Meta<typeof Button> = {
-  title: 'Components/Shadcn/Button',
+  title: 'Components/Shadcn/Controls/Button',
   component: Button,
 }
 

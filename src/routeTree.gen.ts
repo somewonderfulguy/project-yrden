@@ -10,12 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as VisualPatternsRouteImport } from './routes/visual-patterns'
+import { Route as RagingSeaRouteImport } from './routes/raging-sea'
 import { Route as FlagsRouteImport } from './routes/flags'
 import { Route as IndexRouteImport } from './routes/index'
 
 const VisualPatternsRoute = VisualPatternsRouteImport.update({
   id: '/visual-patterns',
   path: '/visual-patterns',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RagingSeaRoute = RagingSeaRouteImport.update({
+  id: '/raging-sea',
+  path: '/raging-sea',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FlagsRoute = FlagsRouteImport.update({
@@ -32,30 +38,34 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/flags': typeof FlagsRoute
+  '/raging-sea': typeof RagingSeaRoute
   '/visual-patterns': typeof VisualPatternsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/flags': typeof FlagsRoute
+  '/raging-sea': typeof RagingSeaRoute
   '/visual-patterns': typeof VisualPatternsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/flags': typeof FlagsRoute
+  '/raging-sea': typeof RagingSeaRoute
   '/visual-patterns': typeof VisualPatternsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/flags' | '/visual-patterns'
+  fullPaths: '/' | '/flags' | '/raging-sea' | '/visual-patterns'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/flags' | '/visual-patterns'
-  id: '__root__' | '/' | '/flags' | '/visual-patterns'
+  to: '/' | '/flags' | '/raging-sea' | '/visual-patterns'
+  id: '__root__' | '/' | '/flags' | '/raging-sea' | '/visual-patterns'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FlagsRoute: typeof FlagsRoute
+  RagingSeaRoute: typeof RagingSeaRoute
   VisualPatternsRoute: typeof VisualPatternsRoute
 }
 
@@ -66,6 +76,13 @@ declare module '@tanstack/react-router' {
       path: '/visual-patterns'
       fullPath: '/visual-patterns'
       preLoaderRoute: typeof VisualPatternsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/raging-sea': {
+      id: '/raging-sea'
+      path: '/raging-sea'
+      fullPath: '/raging-sea'
+      preLoaderRoute: typeof RagingSeaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/flags': {
@@ -88,6 +105,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FlagsRoute: FlagsRoute,
+  RagingSeaRoute: RagingSeaRoute,
   VisualPatternsRoute: VisualPatternsRoute,
 }
 export const routeTree = rootRouteImport

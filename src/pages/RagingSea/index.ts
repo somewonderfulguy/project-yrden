@@ -1,2 +1,1 @@
-export * from './FlagsPage'
 export * from './RagingSea'
