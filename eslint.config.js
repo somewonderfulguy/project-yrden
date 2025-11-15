@@ -18,10 +18,12 @@ export default [
     rules: {
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/purity': 'off',
       'import/order': 'off',
       'no-shadow': 'off',
       'import/consistent-type-specifier-style': 'off',
       'sort-imports': 'off',
+      '@typescript-eslint/array-type': 'off',
     },
   },
 ]
