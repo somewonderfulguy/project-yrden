@@ -23,11 +23,13 @@ export type CanvasEffectCallback = (api: {
 export const useCanvasEffect = (cb: CanvasEffectCallback) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  const cbEvent = useEffectEvent(() => {
-    return cb
-  })
+  const cbEvent = useEffectEvent(() => cb)
 
+  const isMounted = useRef(false)
   useEffect(() => {
+    if (isMounted.current) return
+    isMounted.current = true
+
     const canvas = canvasRef.current
     if (!canvas) return
 
